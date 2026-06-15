@@ -1,1 +1,7 @@
 .venv/
+testes.ipynb
+sintaxe_db.md
+caminhos.py
+__pycache__/
+planejamento.md
+*.duckdb
