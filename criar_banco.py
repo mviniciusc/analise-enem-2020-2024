@@ -16,9 +16,8 @@ def criar_tabela_microdados():
     con.execute(query_criar_tabela)
     print('Tabela de microdados atualizada com sucesso.')
 
-    # semopre fechar a conexão
+    # sempre fechar a conexão
     con.close()
-
 
 # só chamar a função que se quer executar
 

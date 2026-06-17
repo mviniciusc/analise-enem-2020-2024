@@ -5,3 +5,4 @@ caminhos.py
 __pycache__/
 planejamento.md
 *.duckdb
+*.excalidraw
