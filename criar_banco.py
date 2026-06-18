@@ -58,6 +58,6 @@ def criar_tabela_questoes():
 
 # só chamar a função que se quer executar
 
-# criar_tabela_respostas()
-# criar_tabela_itens()
+criar_tabela_respostas()
+criar_tabela_itens()
 # criar_tabela_questoes()
