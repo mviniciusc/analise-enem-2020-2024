@@ -53,11 +53,28 @@ def criar_tabela_questoes():
     # sempre fechar a conexão
     con.close()
 
+def criar_tabela_matriz():
+    #conecta ao banco.
+    con = duckdb.connect('enem_db.duckdb')
+
+    # ler o .sql com o comando. Usa utf-8 para evitar problemas nos comentários
+    with open('Queries/criar_tab_matriz.sql', 'r', encoding='utf-8') as query:
+        query_criar_tabela = query.read()
+
+    # executar a query acima
+    print('Atualizando tabela de matriz')
+    con.execute(query_criar_tabela)
+    print('Tabela de matriz atualizada com sucesso.')
+
+    # sempre fechar a conexão
+    con.close()
+
 
 
 
 # só chamar a função que se quer executar
 
-criar_tabela_respostas()
-criar_tabela_itens()
+# criar_tabela_respostas()
+# criar_tabela_itens()
 # criar_tabela_questoes()
+criar_tabela_matriz()
