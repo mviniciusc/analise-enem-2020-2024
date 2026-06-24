@@ -77,4 +77,4 @@ def criar_tabela_matriz():
 # criar_tabela_respostas()
 # criar_tabela_itens()
 # criar_tabela_questoes()
-criar_tabela_matriz()
+# criar_tabela_matriz()
