@@ -25,6 +25,50 @@ def pop_tabela_respostas():
     # sempre fechar a conexão
     con.close()
 
+def pop_tabela_itens():
+    #conecta ao banco.
+    con = duckdb.connect('enem_db.duckdb')
+
+    # ler o .sql com o comando. Usa utf-8 para evitar problemas nos comentários
+    with open('Queries/pop_tab_itens.sql', 'r', encoding='utf-8') as query:
+        query_pop_tabela = query.read()
+
+
+    # É necessário a troca do caminho do arquivo via variável python, já que o sql está vindo de outro arquivo
+    caminho_real_itens = caminhos.CAMINHO_ITENS_2020
+    query_pop_tabela = query_pop_tabela.replace("caminho_csv",f"'{caminho_real_itens}'")
+
+    # executar a query acima
+    print('Populando tabela de itens')
+    con.execute(query_pop_tabela)
+    print('Tabela de itens populada com sucesso.')
+
+    # sempre fechar a conexão
+    con.close()
+
+def pop_matriz():
+    #conecta ao banco.
+    con = duckdb.connect('enem_db.duckdb')
+
+    # ler o .sql com o comando. Usa utf-8 para evitar problemas nos comentários
+    with open('Queries/pop_tabela_matriz.sql', 'r', encoding='utf-8') as query:
+        query_pop_tabela = query.read()
+
+
+    # É necessário a troca do caminho do arquivo via variável python, já que o sql está vindo de outro arquivo
+    caminho_real_itens = caminhos.CAMINHO_MATRIZ
+    query_pop_tabela = query_pop_tabela.replace("caminho_csv",f"'{caminho_real_itens}'")
+
+    # executar a query acima
+    print('Populando tabela da matriz de referência')
+    con.execute(query_pop_tabela)
+    print('Tabela da matriz de referência populada com sucesso.')
+
+    # sempre fechar a conexão
+    con.close()   
+
 
 # basta chamar a função que quer dar manutenção
-pop_tabela_respostas()  # está limitada a 10000 linhas enquanto teste
+# pop_tabela_respostas()  # está limitada a 10000 linhas enquanto teste
+# pop_tabela_itens()
+pop_matriz()
